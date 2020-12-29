@@ -1,0 +1,104 @@
+% \documentclass{article}
+\documentclass[fontsize=40pt,DIV=calc]{scrartcl}
+\usepackage[utf8]{inputenc}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+
+\usepackage[papersize={15.6in, 20.8in}, left=1.33in, top=1.11in, right=0.22in, bottom=0.22in]{geometry}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[defaultmono]{droidmono}
+\renewcommand*\familydefault{\ttdefault}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{positioning,shapes}
+\tikzstyle{box} = [rectangle, anchor=north west, draw=black, fill=white, inner sep=0pt]
+
+
+\setlength{\parindent}{0pt}
+\setlength{\baselineskip}{50pt}
+
+\newlength{\pad}
+\setlength{\pad}{20pt}
+
+\newcommand{\calctextwidth}[1]{#1 - \pad}
+\newcommand{\duplicate}[2]{
+    \foreach \n in {1,...,#1}{#2}
+}
+
+\makeatletter
+\input droid/t1fdm.fd
+\makeatother
+
+\begin{document}
+
+% PROJECT OVERVIEW
+\newlength{\yprojects}
+\setlength{\yprojects}{\baselineskip + \pad}
+\newlength{\hprojects}
+\setlength{\hprojects}{\textheight - \yprojects - \pad}
+\newlength{\wfirstcol}
+\setlength{\wfirstcol}{0.75\textwidth}
+\setlength{\tabcolsep}{0em}
+\newlength{\wsecondcol}
+\setlength{\wsecondcol}{\textwidth - \wfirstcol}
+
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip] at (0, 0) {PROJECTS};
+    \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {
+        \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} } 
+            first col & second col \\
+        \end{tabular}
+    };
+\end{tikzpicture}
+
+
+% PROJECT
+\newlength{\wdateboxes}
+\setlength{\wdateboxes}{\textwidth - \pad}
+\newlength{\wdatebox}
+\setlength{\wdatebox}{0.5\wdateboxes}
+\newlength{\ydatebox}
+\setlength{\ydatebox}{\baselineskip + \pad}
+\newlength{\xdeadline}
+\setlength{\xdeadline}{\wdatebox + \pad}
+
+\newlength{\ytags}
+\setlength{\ytags}{\ydatebox + \baselineskip + \pad}
+
+\newlength{\ygoal}
+\setlength{\ygoal}{\ytags + \baselineskip + \pad}
+\newlength{\hgoal}
+\setlength{\hgoal}{6.0\baselineskip}
+
+\newlength{\ysubnotes}
+\setlength{\ysubnotes}{\ygoal + \hgoal + \pad}
+\newlength{\hsubnotes}
+\setlength{\hsubnotes}{\textheight - \ysubnotes - \pad}
+\newlength{\wsubnote}
+\setlength{\wsubnote}{\wdatebox}
+\newlength{\xnote}
+\setlength{\xnote}{\wsubnote + \pad}
+
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip, text width=\calctextwidth{\textwidth}] at (0, 0) {PROJECT:};
+    \node [box, minimum width=\wdatebox, minimum height=\baselineskip, text width=\calctextwidth{\wdatebox}] at (0, -\ydatebox) {START: \hfill /\hspace{40pt} / \hspace{80pt}\rule{0pt}{1pt}};
+    \node [box, minimum width=\wdatebox, minimum height=\baselineskip, text width=\calctextwidth{\wdatebox}] at (\xdeadline, -\ydatebox) {DEADLINE: \hfill /\hspace{40pt} / \hspace{80pt}\rule{0pt}{1pt}};
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip, text width=\calctextwidth{\textwidth}] at (0, -\ytags) {TAGS:};
+    \node [box, minimum width=\textwidth, minimum height=\hgoal, text width=\calctextwidth{\textwidth}] at (0, -\ygoal) {
+        GOAL:\vspace{\baselineskip}
+        \duplicate{5}{\hrule\vspace{\baselineskip}}
+    };
+    \node [box, minimum width=\wsubnote, minimum height=\hsubnotes, text width=\calctextwidth{\wsubnote}] at (0, -\ysubnotes) {
+        SUB-PROJECTS:\newline
+        \duplicate{16}{$\square\ $\hrulefill\newline}
+        $\square\ $\hrulefill
+    };
+    \node [box, minimum width=\wsubnote, minimum height=\hsubnotes, text width=\calctextwidth{\wsubnote}] at (\xnote, -\ysubnotes) {
+        NOTES:\vspace{\baselineskip}
+        \duplicate{17}{\hrule\vspace{\baselineskip}}
+    };
+\end{tikzpicture}
+
+
+\end{document}

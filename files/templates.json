@@ -1,0 +1,20 @@
+{
+  "templates": [
+    {
+      "name": "Project Overview",
+      "filename": "project_overview",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
+    },
+    {
+      "name": "Project",
+      "filename": "project",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
+    }
+  ]
+}

@@ -24,7 +24,9 @@ def main():
     subprocess.run(["pdfseparate", f"../{mainfile}.pdf", f"{mainfile}_%d.pdf"])
 
     meta_data = []
-    for pdf, name in zip(Path(".").glob(f"{mainfile}_*.pdf"), names):
+    for i, name in enumerate(names):
+        pdf = Path(".", f"{mainfile}_{i + 1}.pdf")
+        assert pdf.exists(), f"No page {pdf.name} found"
         filename = name.replace(" ", "_").lower()
         
         # Convert to pdf

@@ -1,3 +1,6 @@
 gtd
 Project Overview
 Project
+Project Actions
+Next Action
+Inbox

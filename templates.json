@@ -698,6 +698,30 @@
       "categories": [
         "Gtd"
       ]
+    },
+    {
+      "name": "Project Actions",
+      "filename": "project_actions",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
+    },
+    {
+      "name": "Next Action",
+      "filename": "next_action",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
+    },
+    {
+      "name": "Inbox",
+      "filename": "inbox",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
     }
   ]
 }

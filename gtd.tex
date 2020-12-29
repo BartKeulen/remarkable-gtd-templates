@@ -5,7 +5,9 @@
 
 \usepackage[papersize={15.6in, 20.8in}, left=1.33in, top=1.11in, right=0.22in, bottom=0.22in]{geometry}
 \usepackage{amssymb}
+\usepackage[normalem]{ulem}
 \usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \usepackage[defaultmono]{droidmono}
 \renewcommand*\familydefault{\ttdefault}
 \usepackage[T1]{fontenc}
@@ -26,6 +28,10 @@
     \foreach \n in {1,...,#1}{#2}
 }
 
+% \newcommand{\tablewithdeadline}[1]{
+
+% }
+
 \makeatletter
 \input droid/t1fdm.fd
 \makeatother
@@ -37,21 +43,47 @@
 \setlength{\yprojects}{\baselineskip + \pad}
 \newlength{\hprojects}
 \setlength{\hprojects}{\textheight - \yprojects - \pad}
-\newlength{\wfirstcol}
-\setlength{\wfirstcol}{0.75\textwidth}
 \setlength{\tabcolsep}{0em}
 \newlength{\wsecondcol}
-\setlength{\wsecondcol}{\textwidth - \wfirstcol}
+\setlength{\wsecondcol}{10pt}
+\newlength{\wthirdcol}
+\settowidth{\wthirdcol}{\rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt}}
+\newlength{\wfirstcol}
+\setlength{\wfirstcol}{\textwidth - \wsecondcol - \wthirdcol - 15pt}
 
 \begin{tikzpicture}
-    \node [box, minimum width=\textwidth, minimum height=\baselineskip] at (0, 0) {PROJECTS};
-    \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {
-        \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} } 
-            first col & second col \\
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip] at (0, 0) {PROJECT OVERVIEW};
+    \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {    
+    \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} m{\wthirdcol}}
+             & & \scriptsize DEADLINE: \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
         \end{tabular}
     };
 \end{tikzpicture}
-
 
 % PROJECT
 \newlength{\wdateboxes}
@@ -97,6 +129,117 @@
     \node [box, minimum width=\wsubnote, minimum height=\hsubnotes, text width=\calctextwidth{\wsubnote}] at (\xnote, -\ysubnotes) {
         NOTES:\vspace{\baselineskip}
         \duplicate{17}{\hrule\vspace{\baselineskip}}
+    };
+\end{tikzpicture}
+
+% PROJECT ACTIONS
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip, text width=\calctextwidth{\textwidth}] at (0, 0) {PROJECT:};
+    \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {    
+    \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} m{\wthirdcol}}
+            \scriptsize ACTIONS: & & \scriptsize DEADLINE: \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+        \end{tabular}
+    };
+\end{tikzpicture}
+
+% NEXT ACTION
+\setlength{\ytags}{\baselineskip + \pad}
+\newlength{\ynextactions}
+\setlength{\ynextactions}{\ytags + \baselineskip + \pad}
+\newlength{\hnextactions}
+\setlength{\hnextactions}{\textheight - \ynextactions}
+
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip] at (0, 0) {NEXT ACTION};
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip, text width=\calctextwidth{\textwidth}] at (0, -\ytags) {TAGS:};
+    \node [box, minimum width=\textwidth, minimum height=\hnextactions, text width=\calctextwidth{\textwidth}] at (0, -\ynextactions) {    
+    \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} m{\wthirdcol}}
+            \scriptsize ACTIONS: & & \scriptsize DEADLINE: \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+        \end{tabular}
+    };
+\end{tikzpicture}
+
+
+% INBOX
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip] at (0, 0) {INBOX};
+    \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {    
+    \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} m{\wthirdcol}}
+             & & \scriptsize DEADLINE: \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+        \end{tabular}
     };
 \end{tikzpicture}
 

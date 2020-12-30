@@ -4,3 +4,4 @@ Project
 Project Actions
 Next Action
 Inbox
+Day Planner

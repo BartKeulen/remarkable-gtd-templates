@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 %\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
 
-\usepackage[papersize={15.6in, 20.8in}, left=1.33in, top=1.11in, right=0.22in, bottom=0.22in]{geometry}
+\usepackage[papersize={15.6in, 20.8in}, left=1.33in, top=0.22in, right=0.22in, bottom=0.22in]{geometry}
 \usepackage{amssymb}
 \usepackage[normalem]{ulem}
 \usepackage{array}
@@ -81,6 +81,7 @@
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
         \end{tabular}
     };
 \end{tikzpicture}
@@ -123,12 +124,12 @@
     };
     \node [box, minimum width=\wsubnote, minimum height=\hsubnotes, text width=\calctextwidth{\wsubnote}] at (0, -\ysubnotes) {
         SUB-PROJECTS:\newline
-        \duplicate{16}{$\square\ $\hrulefill\newline}
+        \duplicate{17}{$\square\ $\hrulefill\newline}
         $\square\ $\hrulefill
     };
     \node [box, minimum width=\wsubnote, minimum height=\hsubnotes, text width=\calctextwidth{\wsubnote}] at (\xnote, -\ysubnotes) {
         NOTES:\vspace{\baselineskip}
-        \duplicate{17}{\hrule\vspace{\baselineskip}}
+        \duplicate{18}{\hrule\vspace{\baselineskip}}
     };
 \end{tikzpicture}
 
@@ -138,6 +139,7 @@
     \node [box, minimum width=\textwidth, minimum height=\hprojects, text width=\calctextwidth{\textwidth}] at (0, -\yprojects) {    
     \begin{tabular}{ m{\wfirstcol} m{\wsecondcol} m{\wthirdcol}}
             \scriptsize ACTIONS: & & \scriptsize DEADLINE: \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
@@ -203,6 +205,7 @@
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
         \end{tabular}
     };
 \end{tikzpicture}
@@ -239,8 +242,65 @@
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
             $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
+            $\square\ $\hrulefill & & \rule{40pt}{1pt}/\rule{40pt}{1pt}/\rule{80pt}{1pt} \\
         \end{tabular}
     };
+\end{tikzpicture}
+
+
+% DAY PLANNER
+\newlength{\hactionsnotes}
+\setlength{\hactionsnotes}{\hprojects - \pad}
+\newlength{\hactions}
+\setlength{\hactions}{0.6\hactionsnotes}
+\newlength{\ynotes}
+\setlength{\ynotes}{\yprojects + \hactions + \pad}
+\newlength{\hnotes}
+\setlength{\hnotes}{\hactionsnotes - \hactions}
+
+
+\begin{tikzpicture}
+    \node [box, minimum width=\textwidth, minimum height=\baselineskip, text width=\calctextwidth{\textwidth}] at (0, 0) {DATE: \hspace{40pt}/\hspace{40pt}/\hspace{80pt}};
+    \node [box, minimum width=\wsubnote, minimum height=\hprojects, text width=\calctextwidth{\wsubnote}] at (0, -\yprojects) {
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 08:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 09:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 10:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 11:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 12:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 13:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 14:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 15:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 16:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 17:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 18:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 19:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 20:00 \vspace{3em}}}\newline
+        \rule{20pt}{1pt}\newline
+        \underline{\smash{\tiny 21:00 \vspace{3em}}}
+    };
+    \node [box, minimum width=\wsubnote, minimum height=\hactions, text width=\calctextwidth{\wsubnote}] at (\xnote, -\yprojects) {    
+        ACTIONS:\newline
+        \duplicate{15}{$\square\ $\hrulefill\newline}
+        $\square\ $\hrulefill
+    };
+    \node [box, minimum width=\wsubnote, minimum height=\hnotes, text width=\calctextwidth{\wsubnote}] at (\xnote, -\ynotes) {    
+        NOTES:\vspace{\baselineskip}
+        \duplicate{10}{\hrule\vspace{\baselineskip}}
+    };
+
 \end{tikzpicture}
 
 

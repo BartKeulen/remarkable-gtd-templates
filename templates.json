@@ -722,6 +722,14 @@
       "categories": [
         "Gtd"
       ]
+    },
+    {
+      "name": "Day Planner",
+      "filename": "day_planner",
+      "iconCode": "\ue98f",
+      "categories": [
+        "Gtd"
+      ]
     }
   ]
 }

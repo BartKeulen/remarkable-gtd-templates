@@ -1,6 +1,8 @@
 # GTD Templates for Remarkable
 Contains templates for GTD writting in tex and utilities for generating svg/png files and uploads templates to remarkable.
 
+DISCLAIMER: Usage of this software is at your own risk and you are responsible for loss of files other damages. Make sure to backup your Remarkable (and the templates) before using this software.
+
 ## Examples
 
 |  |  |  |

@@ -17,6 +17,8 @@ The code has been tested using the following setup:
 - Python 3.8.0
 - pdflatex
 
+Besides from running the code natively on your computer, this project also comes with a slim `Dockerfile` which allows you to create and upload the reMarkable templates on any operating system which [has docker installed](https://docs.docker.com/get-docker/). See usage below.
+
 ### LaTeX
 A LaTeX compiler for generating the pdf containing the templates. Sevaral LaTeX packages are required, which can be found in the `gtd.tex` file.
 
@@ -41,6 +43,15 @@ Commands:
 - `make upload` uploads templates to remarkable and updates the `templates.json` file.
 - `make clean` deletes latex build files and files directory.
 - `make` runs `pdf`, `convert` and `upload` in sequence.
+
+### Using Docker
+
+You can also use `docker` to run all above commands without having the required dependencies installed on your computer.
+
+Commands:
+- `docker build -t gtd .` creates the docker image
+- `docker run --network host -it gtd` executes the `make` command as documented above
+- `docker run --network host -it gtd make pdf` to run a specific make command
 
 ## Notes
 ### Page Sizes

@@ -3,7 +3,7 @@ import json
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import getpass
 
-from paramiko import SSHClient
+from paramiko import AutoAddPolicy, SSHClient
 from scp import SCPClient
 
 
@@ -13,8 +13,9 @@ RM_TEMPLATES_DIR = Path("/usr/share/remarkable/templates/")
 def main(args):
     ssh = SSHClient()
     ssh.load_system_host_keys()
+    ssh.set_missing_host_key_policy(AutoAddPolicy())
 
-    password = getpass.getpass() if args.password else None
+    password = args.password or getpass.getpass("reMarkable password: ")
     ssh.connect(args.host, username=args.user, password=password)
 
     scp = SCPClient(ssh.get_transport())
